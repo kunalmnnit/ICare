@@ -21,7 +21,7 @@ import com.kunal.icare.databinding.ActivityLoginBinding
         else
             setContentView(view)
         binding.signUp.setOnClickListener {
-            val i = Intent(this@LoginActivity, SignupActivity::class.java)
+            val i = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(i)
             finish()
         }
@@ -32,12 +32,10 @@ import com.kunal.icare.databinding.ActivityLoginBinding
 
      private fun login() {
          val auth = Firebase.auth
-         auth.signInWithEmailAndPassword(binding.emailAddress.getText().toString(), binding.password.getText().toString()).addOnCompleteListener { task ->
+         auth.signInWithEmailAndPassword(binding.emailAddress.text.toString(), binding.password.text.toString()).addOnCompleteListener { task ->
              if (task.isSuccessful) {
                  Toast.makeText(this@LoginActivity, "User Successfully logged in", Toast.LENGTH_SHORT).show()
                  val user = auth.currentUser!!.uid
-//                 val db = Firebase.firestore
-//                 db.collection("patients").document(user).update("flag",false)
                  startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                  finish()
              } else {
