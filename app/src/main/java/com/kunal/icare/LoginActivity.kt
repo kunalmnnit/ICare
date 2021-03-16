@@ -35,7 +35,6 @@ import com.kunal.icare.databinding.ActivityLoginBinding
          auth.signInWithEmailAndPassword(binding.emailAddress.text.toString(), binding.password.text.toString()).addOnCompleteListener { task ->
              if (task.isSuccessful) {
                  Toast.makeText(this@LoginActivity, "User Successfully logged in", Toast.LENGTH_SHORT).show()
-                 val user = auth.currentUser!!.uid
                  startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                  finish()
              } else {
