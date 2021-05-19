@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment!!.getMapAsync(this)
-        docId = "bi1BF04JEzdnSb4OyqIg9JZX7sE2"
+        docId = intent!!.getStringExtra("id")
         val intent = Intent(this,AlarmService::class.java).putExtra("id",docId)
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O) {
             startForegroundService(intent)

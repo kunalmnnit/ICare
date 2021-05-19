@@ -35,7 +35,7 @@ import com.kunal.icare.databinding.ActivityLoginBinding
          auth.signInWithEmailAndPassword(binding.emailAddress.text.toString(), binding.password.text.toString()).addOnCompleteListener { task ->
              if (task.isSuccessful) {
                  Toast.makeText(this@LoginActivity, "User Successfully logged in", Toast.LENGTH_SHORT).show()
-                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                 startActivity(Intent(this@LoginActivity, Scanner::class.java))
                  finish()
              } else {
                  Toast.makeText(this@LoginActivity, "Wrong Email Address or Password", Toast.LENGTH_SHORT).show()
